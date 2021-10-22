@@ -20,7 +20,8 @@ WORKDIR "/src/."
 RUN dotnet build "dnetmvc31.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "dnetmvc31.csproj" -c Release -o /app/publish -r linux-arm64  --self-contained false --no-restore
+# RUN dotnet publish "dnetmvc31.csproj" -c Release -o /app/publish -r linux-arm64  --self-contained false --no-restore
+RUN dotnet publish "dnetmvc31.csproj" -c Release -o /app/publish -r linux-arm64 
 
 FROM base AS final
 WORKDIR /app
